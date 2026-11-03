@@ -66,7 +66,7 @@
 
   /* Hero */
   .hero { padding: 120px 28px 104px; text-align: left; }
-  .hero-logo { width: 200px; height: 200px; object-fit: contain; margin: 0 0 40px -20px; display: block; }
+  .hero-logo { width: 280px; height: 280px; object-fit: contain; margin: -30px 0 20px -40px; display: block; }
   .hero-tag { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); margin: 0 0 28px; }
   h1 {
     font-family: "Fraunces", Georgia, serif;
@@ -113,13 +113,28 @@
   }
   .links a:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
 
+  /* Q&A */
+  .qa { margin: 40px 0 0; border-top: 1px solid var(--line); }
+  .qa details { border-bottom: 1px solid var(--line); }
+  .qa summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 24px 0; font-family: "Fraunces", Georgia, serif; font-weight: 300; font-size: clamp(1.15rem, 2.4vw, 1.5rem); color: var(--text); transition: color .3s ease; }
+  .qa summary::-webkit-details-marker { display: none; }
+  .qa summary:hover { color: var(--muted); }
+  .qa summary::after { content: "+"; font-family: "Instrument Sans", sans-serif; font-weight: 400; font-size: 1.4rem; color: var(--muted); transition: transform .4s ease; flex: none; }
+  .qa details[open] summary::after { transform: rotate(45deg); }
+  .qa .answer { padding: 0 0 26px; color: var(--muted); font-size: 1.05rem; max-width: 62ch; }
+  .qa .answer p { margin: 0; }
+  @keyframes qaOpen { from { opacity: 0; transform: translateY(-10px); clip-path: inset(0 0 100% 0); } to { opacity: 1; transform: none; clip-path: inset(0 0 0 0); } }
+  .qa .answer { overflow: hidden; }
+  .qa details { transition: none; }
+  @media (prefers-reduced-motion: reduce) { .qa details[open] .answer { animation: none; } }
+
   footer { border-top: 1px solid var(--line); padding: 40px 0 56px; color: var(--muted); font-size: .88rem; }
   footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 
   @media (max-width: 800px) {
     .row { grid-template-columns: 1fr; gap: 24px; }
     .hero { padding: 72px 22px 64px; }
-    .hero-logo { width: 180px; height: 180px; margin: 0 auto 36px; }
+    .hero-logo { width: 230px; height: 230px; margin: 0 auto 30px; }
     .hero-tag { letter-spacing: .16em; font-size: .7rem; line-height: 1.7; }
     h1 { font-size: clamp(2.2rem, 11vw, 2.8rem); line-height: 1.08; overflow-wrap: anywhere; }
     .hero-lead { font-size: 1.02rem; }
@@ -193,6 +208,34 @@
       </div>
     </section>
 
+    <section id="qa">
+      <div class="wrap row">
+        <p class="label reveal">Q &amp; A</p>
+        <div class="qa reveal">
+          <details>
+            <summary>Who are you?</summary>
+            <div class="answer"><p>I'm Mohammad Hossein EV18, a digital creator and designer. I make games, digital art and design, and I'm the owner of ZEROX GAME STUDIOS.</p></div>
+          </details>
+          <details>
+            <summary>What kind of work do you do?</summary>
+            <div class="answer"><p>Game development, digital art and visual design. I like projects where technology and imagination meet.</p></div>
+          </details>
+          <details>
+            <summary>Can we work together?</summary>
+            <div class="answer"><p>Yes, it depends on the project. Send me a message through the contact links below and tell me what you have in mind.</p></div>
+          </details>
+          <details>
+            <summary>What is ZEROX GAME STUDIOS?</summary>
+            <div class="answer"><p>It's the game studio I created and own, where my games are developed.</p></div>
+          </details>
+          <details>
+            <summary>Where can I follow your work?</summary>
+            <div class="answer"><p>On YouTube, Instagram and Telegram. The links are at the bottom of this page.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <section id="contact">
       <div class="wrap row">
         <p class="label reveal">Contact</p>
@@ -226,6 +269,31 @@
     });
   }, { threshold: 0.15 });
   els.forEach(function (el) { io.observe(el); });
+})();
+<script>
+(function () {
+  document.querySelectorAll('.qa details').forEach(function (d) {
+    var s = d.querySelector('summary');
+    var a = d.querySelector('.answer');
+    s.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (d.open) {
+        var h = a.offsetHeight;
+        var anim = a.animate(
+          [{ height: h + 'px', opacity: 1 }, { height: '0px', opacity: 0 }],
+          { duration: 900, easing: 'cubic-bezier(.22,.61,.36,1)' }
+        );
+        anim.onfinish = function () { d.open = false; };
+      } else {
+        d.open = true;
+        var h2 = a.offsetHeight;
+        a.animate(
+          [{ height: '0px', opacity: 0 }, { height: h2 + 'px', opacity: 1 }],
+          { duration: 1100, easing: 'cubic-bezier(.22,.61,.36,1)' }
+        );
+      }
+    });
+  });
 })();
 </script>
 </body>
