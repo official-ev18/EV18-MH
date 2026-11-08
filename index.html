@@ -143,6 +143,15 @@
     .qa summary::after { transition: none; }
   }
 
+  /* Project box */
+  .fluffy-box { display: block; border: 1px solid var(--line); padding: 40px 36px; text-decoration: none; color: var(--text); transition: border-color .5s ease; }
+  .fluffy-box:hover { border-color: var(--text); }
+  .fb-tag { display: inline-block; font-size: .72rem; letter-spacing: .24em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 5px 14px; margin-bottom: 22px; }
+  .fluffy-box h3 { font-family: "Fraunces", Georgia, serif; font-weight: 300; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; margin: 0 0 14px; }
+  .fluffy-box p { margin: 0 0 26px; color: var(--muted); font-size: 1.05rem; max-width: 52ch; }
+  .fb-go { display: inline-block; font-size: .9rem; letter-spacing: .14em; text-transform: uppercase; border-bottom: 1px solid var(--text); padding-bottom: 4px; transition: letter-spacing .4s ease; }
+  .fluffy-box:hover .fb-go { letter-spacing: .22em; }
+
   footer { border-top: 1px solid var(--line); padding: 40px 0 56px; color: var(--muted); font-size: .88rem; }
 
   footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
@@ -249,6 +258,21 @@
             <summary>Where can I follow your work?</summary>
             <div class="answer"><p>On YouTube, Instagram and Telegram. The links are at the bottom of this page.</p></div>
           </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="fluffy">
+      <div class="wrap row">
+        <p class="label reveal">Project</p>
+        <div class="reveal">
+          <p class="body" style="color:var(--muted);margin:0 0 28px;max-width:60ch;">A project I built and host on its own site. Open it to see the full thing.</p>
+          <a class="fluffy-box" href="https://official-ev18.github.io/fluffy-original-/" target="_blank" rel="noopener">
+            <span class="fb-tag">Our own site</span>
+            <h3>Fluffy</h3>
+            <p>This box is a link to our own site. Click it to open Fluffy in a new tab.</p>
+            <span class="fb-go">Visit ↗</span>
+          </a>
         </div>
       </div>
     </section>
