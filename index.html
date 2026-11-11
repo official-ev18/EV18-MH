@@ -162,6 +162,7 @@
   /* Hamburger menu (hand-drawn ink lines) */
   .burger { display: none; }
   @media (max-width: 800px) {
+    header { position: relative; z-index: 50; }
     header .wrap { position: relative; }
     .burger { display: flex; align-items: center; background: none; border: 0; padding: 8px; cursor: pointer; color: var(--text); }
     .burger path { fill: none; stroke: var(--text); stroke-width: 1.4; stroke-linecap: round; transform-box: fill-box; transform-origin: center; transition: transform .6s cubic-bezier(.22,.61,.36,1), opacity .35s ease; }
