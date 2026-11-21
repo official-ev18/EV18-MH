@@ -43,7 +43,7 @@
   @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
   @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
   @keyframes draw { to { stroke-dashoffset: 0; } }
-  header { animation: fade 1.2s ease both; }
+  header { animation: none; }
   .hero-logo { animation: fade 1.6s .2s ease both; }
   .hero-tag { animation: rise 1s .4s cubic-bezier(.2,.7,.2,1) both; }
   h1 { animation: rise 1.1s .55s cubic-bezier(.2,.7,.2,1) both; }
@@ -159,23 +159,23 @@
   .fluffy-box:hover::before { opacity: 1; }
   .fluffy-box > * { position: relative; }
 
-  /* Hamburger menu (hand-drawn ink lines) */
-  .burger { display: none; }
-  @media (max-width: 800px) {
-    header .wrap { position: relative; }
-    .burger { display: flex; align-items: center; background: none; border: 0; padding: 8px; cursor: pointer; color: var(--text); }
-    .burger path { fill: none; stroke: var(--text); stroke-width: 1.4; stroke-linecap: round; transform-box: fill-box; transform-origin: center; transition: transform .6s cubic-bezier(.22,.61,.36,1), opacity .35s ease; }
-    .burger[aria-expanded="true"] .l1 { transform: translateY(7px) rotate(42deg); }
-    .burger[aria-expanded="true"] .l2 { opacity: 0; }
-    .burger[aria-expanded="true"] .l3 { transform: translateY(-7px) rotate(-42deg); }
-    nav#mainNav { display: none; position: absolute; top: calc(100% + 8px); left: 20px; right: 20px; flex-direction: column; gap: 0; background: rgba(19,19,21,.55); -webkit-backdrop-filter: blur(16px) saturate(130%); backdrop-filter: blur(16px) saturate(130%); border: 1px solid rgba(255,255,255,.12); border-radius: 14px; padding: 6px 22px; z-index: 20; box-shadow: 0 18px 40px rgba(0,0,0,.35); }
-    nav#mainNav.open { display: flex; animation: fade .35s ease both; }
-    nav#mainNav a { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.1); }
-    nav#mainNav a:last-child { border-bottom: 0; }
-  }
+  /* Side drawer menu (slides in from the right) */
+  header .wrap { position: relative; }
+  .burger { display: flex; align-items: center; background: none; border: 0; padding: 8px; cursor: pointer; color: var(--text); position: relative; z-index: 60; }
+  .burger path { fill: none; stroke: var(--text); stroke-width: 1.4; stroke-linecap: round; transform-box: fill-box; transform-origin: center; transition: transform .6s cubic-bezier(.22,.61,.36,1), opacity .35s ease; }
+  .burger[aria-expanded="true"] .l1 { transform: translateY(7px) rotate(42deg); }
+  .burger[aria-expanded="true"] .l2 { opacity: 0; }
+  .burger[aria-expanded="true"] .l3 { transform: translateY(-7px) rotate(-42deg); }
+  nav#mainNav { position: fixed; top: 0; right: 0; bottom: 0; width: min(340px, 86%); height: 100vh; display: flex; flex-direction: column; justify-content: center; gap: 0; padding: 0 40px; background: #131315; -webkit-backdrop-filter: none; backdrop-filter: none; border-left: 1px solid rgba(255,255,255,.12); z-index: 55; transform: translateX(100%); visibility: hidden; transition: transform .55s cubic-bezier(.22,.61,.36,1), visibility .55s; }
+  nav#mainNav.open { transform: none; visibility: visible; }
+  .menu-close { position: absolute; top: 22px; right: 22px; width: 44px; height: 44px; padding: 8px; background: none; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text); }
+  .menu-close path { fill: none; stroke: var(--text); stroke-width: 1.4; stroke-linecap: round; transition: stroke-width .3s ease, opacity .3s ease; }
+  .menu-close:hover path { stroke-width: 1.9; }
+  nav#mainNav a { font-family: "Fraunces", Georgia, serif; font-weight: 300; font-size: 2rem; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,.1); }
+  nav#mainNav a:last-child { border-bottom: 0; }
 
-  /* Keep the header visible while scrolling */
   header { position: sticky; top: 0; z-index: 50; background: var(--bg); }
+
   footer { border-top: 1px solid var(--line); padding: 40px 0 56px; color: var(--muted); font-size: .88rem; }
 
   footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
@@ -201,15 +201,16 @@
 </style>
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <a class="brand" href="#top"><img src="https://i.ibb.co/d4NGt5nV/ev18-logo.png" alt="EV18 ship logo">EV18</a>
-      <nav id="mainNav" aria-label="Main">
+  <nav id="mainNav" aria-label="Main">
+    <button class="menu-close" type="button" aria-label="Close menu"><svg viewBox="0 0 28 28" width="26" height="26" aria-hidden="true"><path d="M4 4.4 C 10 9.2, 16 18.6, 24 24.2"/><path d="M24.4 3.6 C 18 9.6, 11 17.8, 3.8 24.6"/></svg></button>
         <a href="#about">About</a>
         <a href="#approach">Approach</a>
         <a href="#contact">Contact</a>
         
       </nav>
+  <header>
+    <div class="wrap">
+      <a class="brand" href="#top"><img src="https://i.ibb.co/d4NGt5nV/ev18-logo.png" alt="EV18 ship logo">EV18</a>
       <button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mainNav"><svg viewBox="0 0 28 20" width="28" height="20" aria-hidden="true"><path class="l1" d="M1 3.2 C 8 1.6, 16 4.4, 27 2.5"/><path class="l2" d="M2 10.4 C 10 8.8, 18 11.7, 26 9.6"/><path class="l3" d="M1 17.1 C 9 15.7, 17 18.3, 27 16.5"/></svg></button>
     </div>
   </header>
@@ -372,6 +373,10 @@
   burger.addEventListener('click', function () {
     var open = mainNav.classList.toggle('open');
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.querySelector('.menu-close').addEventListener('click', function () {
+    mainNav.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
   });
   mainNav.querySelectorAll('a').forEach(function (a) {
     a.addEventListener('click', function () {
