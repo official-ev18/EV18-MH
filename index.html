@@ -6,7 +6,7 @@
 <meta name="description" content="Mohammad Hossein EV18 - Digital Creator, Designer, Creative Mind. Owner of ZEROX GAME STUDIOS.">
 <title>Mohammad Hossein EV18</title>
 <meta name="google-site-verification" content="sS6EVdHtXg_rUUtXBdgzjj_XTiLnpVDBhHhpgO33C8M" />
-<link rel="icon" href="https://cdn.imagetourls.com/uploads/tyImg/GM4HS10E.png" type="image/png">
+<link rel="icon" href="https://i.ibb.co/d4NGt5nV/ev18-logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
@@ -87,7 +87,7 @@
   /* Sections */
   section { padding: 104px 0; }
   .row { display: grid; grid-template-columns: 200px 1fr; gap: 64px; align-items: start; }
-  .label { font-size: .75rem; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); margin: 0; padding-top: 10px; border-top: 1px solid var(--line); }
+  .label { font-size: .75rem; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); margin: 0; padding-top: 10px; }
   .body p { margin: 0 0 22px; font-size: 1.12rem; color: var(--muted); }
   .body p:last-child { margin-bottom: 0; }
   .body p strong { color: var(--text); font-weight: 500; }
@@ -162,7 +162,6 @@
   /* Hamburger menu (hand-drawn ink lines) */
   .burger { display: none; }
   @media (max-width: 800px) {
-    header { position: relative; z-index: 50; }
     header .wrap { position: relative; }
     .burger { display: flex; align-items: center; background: none; border: 0; padding: 8px; cursor: pointer; color: var(--text); }
     .burger path { fill: none; stroke: var(--text); stroke-width: 1.4; stroke-linecap: round; transform-box: fill-box; transform-origin: center; transition: transform .6s cubic-bezier(.22,.61,.36,1), opacity .35s ease; }
@@ -175,6 +174,8 @@
     nav#mainNav a:last-child { border-bottom: 0; }
   }
 
+  /* Keep the header visible while scrolling */
+  header { position: sticky; top: 0; z-index: 50; background: var(--bg); }
   footer { border-top: 1px solid var(--line); padding: 40px 0 56px; color: var(--muted); font-size: .88rem; }
 
   footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
@@ -202,7 +203,7 @@
 <body>
   <header>
     <div class="wrap">
-      <a class="brand" href="#top"><img src="https://cdn.imagetourls.com/uploads/tyImg/GM4HS10E.png" alt="EV18 ship logo">EV18</a>
+      <a class="brand" href="#top"><img src="https://i.ibb.co/d4NGt5nV/ev18-logo.png" alt="EV18 ship logo">EV18</a>
       <nav id="mainNav" aria-label="Main">
         <a href="#about">About</a>
         <a href="#approach">Approach</a>
@@ -215,7 +216,7 @@
 
   <main id="top">
     <div class="wrap hero">
-      <img class="hero-logo" src="https://cdn.imagetourls.com/uploads/tyImg/GM4HS10E.png" alt="EV18 ship logo">
+      <img class="hero-logo" src="https://i.ibb.co/d4NGt5nV/ev18-logo.png" alt="EV18 ship logo">
       
       <h1>Mohammad Hossein <span>EV18</span></h1>
       <p class="hero-lead">Technology, digital art, design, and innovation, brought together to make imagination real.</p>
