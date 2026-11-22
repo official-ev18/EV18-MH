@@ -387,6 +387,17 @@
       burger.setAttribute('aria-expanded', 'false');
     });
   });
+  // Logo source by region: Iranian visitors get the local copy, others get the default.
+  (function () {
+    var lang = (navigator.language || '').toLowerCase();
+    var tz = '';
+    try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+    var isIran = lang.indexOf('fa') === 0 || lang.indexOf('-ir') !== -1 || tz === 'Asia/Tehran';
+    if (!isIran) return;
+    var iranLogo = 'https://uploadkon.ir/uploads/2d6422_26ev18-logo.png';
+    document.querySelectorAll('img[src*="i.ibb.co"]').forEach(function (img) { img.src = iranLogo; });
+    document.querySelectorAll('link[rel="icon"]').forEach(function (l) { l.href = iranLogo; });
+  })();
 })();
 </script>
 </body>
