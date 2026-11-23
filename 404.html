@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>404 | Mohammad Hossein EV18</title>
+<link rel="icon" href="https://i.ibb.co/d4NGt5nV/ev18-logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@300;500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #131315; --text: #FFFFFF; --muted: #BDBDBD; --line: #292929; color-scheme: dark; }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    display: flex; align-items: center; justify-content: center;
+    padding: 32px 24px; text-align: center; -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 560px; animation: rise 1s cubic-bezier(.22,.61,.36,1) both; }
+  img { width: 130px; height: 130px; object-fit: contain; display: block; margin: 0 auto 36px; opacity: .9; }
+  .code { font-size: .75rem; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); margin: 0 0 18px; }
+  h1 { font-family: "Fraunces", Georgia, serif; font-weight: 300; font-size: clamp(2.4rem, 7vw, 3.8rem); line-height: 1.1; margin: 0 0 22px; letter-spacing: -.01em; }
+  p { color: var(--muted); font-size: 1.1rem; line-height: 1.7; margin: 0 0 40px; }
+  a.home { display: inline-block; text-decoration: none; color: var(--text); border: 1px solid var(--line); padding: 14px 28px; font-size: .95rem; letter-spacing: .02em; transition: background .4s ease, color .4s ease, border-color .4s ease; }
+  a.home:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
+  a.home:focus-visible { outline: 1px solid var(--text); outline-offset: 4px; }
+  @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { main { animation: none; } a.home { transition: none; } }
+</style>
+</head>
+<body>
+  <main>
+    <img src="https://i.ibb.co/d4NGt5nV/ev18-logo.png" alt="EV18 ship logo">
+    <p class="code">Error 404</p>
+    <h1>This page drifted off course.</h1>
+    <p>The page you are looking for is not on this shore. Head back to the harbor.</p>
+    <a class="home" href="./">Back to home</a>
+  </main>
+</body>
+</html>
